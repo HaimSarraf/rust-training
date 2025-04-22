@@ -1,5 +1,6 @@
 // use std::io;
 // use std::any::type_name;
+// use text_io::read;
 
 // fn type_of<T>(_: T) -> &'static str {
 //     type_name::<T>()
@@ -76,35 +77,92 @@ fn main() {
 
         io::stdin()
         .read_line(&mut index)
-        .expect("Failed ti read the Line");
+        .expect("Failed to read the Line");
 
         let index: usize = index.trim().parse().expect("Index Entered is not a number");
 
         let element = a[index-1];
 
-        println!("The value of the element at index {index} is : {element}");
+        println!("The valu
+        e of the element at index {index} is : {element}");
          */
     }
 
     //* Function in Rust
     //* Statements/Expressions
 
-    print_labeled_measurement(32, "kg");
+    { /*
+        print_labeled_measurement(32, "kg");
 
-    let y = {
+        let y = {
         let x = 5;
         x + 1 //awareness!! : this line is an Expression & hasn't semicolon {;}  !!
+        };
+        println!("The value of y = {y}");
+
+        let five_function_indicator = five();
+        println!("The value of indicator is :{five_function_indicator}")
+         */
+    }
+
+    //* IF-expression
+
+    { /* 
+        println!("Please Enter a Number :");
+
+        let x: i64 = read!();
+
+        if x > 0 {
+        println!("Positive\n")
+        } else if x < 0 {
+        println!("Negative\n")
+        } else {
+        println!("Zero\n")
+        }
+
+        let y:i32 = if x > 0 { 1 } else if x < 0 { -1 } else { 0 };
+
+        println!("The value of y = {y}");
+         */
+    }
+
+    //* Loops & Loop_Labels
+
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
     };
-    println!("The value of y = {y}");
+    println!("The Result is : {result}\n");
 
-    let five_function_indicator = five();
-    println!("The value of indicator is :{five_function_indicator}")
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}\n");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining ={remaining}");
+            if remaining == 9  {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+        count += 1;
+    }
+    println!("End Count = {count}");
 }
 
-fn print_labeled_measurement(value: i32, unit_label: &str) {
-    println!("The measurement is: {value}{unit_label}\n");
-}
+// fn print_labeled_measurement(value: i32, unit_label: &str) {
+//    println!("The measurement is: {value}{unit_label}\n");
+// }
 
-fn five() -> i32 {
-    5 // that equals :  return 5;
-}
+// fn five() -> i32 {
+//     5 // that equals :  return 5;
+// }
