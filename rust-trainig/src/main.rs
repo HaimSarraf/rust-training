@@ -1,12 +1,11 @@
+use std::io;
 // use std::any::type_name;
 
 // fn type_of<T>(_: T) -> &'static str {
 //     type_name::<T>()
 // }
 
-
 fn main() {
-    
     //* Variables in Rust
 
     { /*
@@ -58,24 +57,32 @@ fn main() {
          */
     }
 
-
     //* Arrays in Rust
 
-    let a : [i32;5] = [1,2,3,4,5];
-    print!("a = {:?}\n" , a);
-    
-    
-    let b: [char; 4] = [char::from('b'); 4];
-    print!("b = {:?}\n", b);
-    
+    { /*
+        let a: [i32; 5] = [10, 20, 30, 40, 50];
+        print!("a = {:?}\n", a);
 
-    let slice: &[i32] = &a[1..4];
-    print!("slice = {:?}\n", slice);
+        let b: [char; 4] = [char::from('b'); 4];
+        print!("b = {:?}\n", b);
 
+        let slice: &[i32] = &a[1..4];
+        print!("slice = {:?}\n", slice);
 
-    let sum: i32 = slice.iter().sum();
-    print!("Sum of slice elements = {}\n", sum);
+        let sum: i32 = slice.iter().sum();
+        print!("Sum of slice elements = {}\n", sum);
 
+        let mut index = String::new();
 
+        io::stdin()
+        .read_line(&mut index)
+        .expect("Failed ti read the Line");
 
+        let index: usize = index.trim().parse().expect("Index Entered is not a number");
+
+        let element = a[index-1];
+
+        println!("The value of the element at index {index} is : {element}");
+        */
+    }
 }
