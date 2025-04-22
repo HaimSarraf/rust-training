@@ -1,4 +1,4 @@
-use std::io;
+// use std::io;
 // use std::any::type_name;
 
 // fn type_of<T>(_: T) -> &'static str {
@@ -83,6 +83,28 @@ fn main() {
         let element = a[index-1];
 
         println!("The value of the element at index {index} is : {element}");
-        */
+         */
     }
+
+    //* Function in Rust
+    //* Statements/Expressions
+
+    print_labeled_measurement(32, "kg");
+
+    let y = {
+        let x = 5;
+        x + 1 //awareness!! : this line is an Expression & hasn't semicolon {;}  !!
+    };
+    println!("The value of y = {y}");
+
+    let five_function_indicator = five();
+    println!("The value of indicator is :{five_function_indicator}")
+}
+
+fn print_labeled_measurement(value: i32, unit_label: &str) {
+    println!("The measurement is: {value}{unit_label}\n");
+}
+
+fn five() -> i32 {
+    5 // that equals :  return 5;
 }
