@@ -1,8 +1,9 @@
-use std::any::type_name;
+// use std::any::type_name;
 
-fn type_of<T>(_: T) -> &'static str {
-    type_name::<T>()
-}
+// fn type_of<T>(_: T) -> &'static str {
+//     type_name::<T>()
+// }
+
 
 fn main() {
     
@@ -60,6 +61,21 @@ fn main() {
 
     //* Arrays in Rust
 
+    let a : [i32;5] = [1,2,3,4,5];
+    print!("a = {:?}\n" , a);
     
+    
+    let b: [char; 4] = [char::from('b'); 4];
+    print!("b = {:?}\n", b);
+    
+
+    let slice: &[i32] = &a[1..4];
+    print!("slice = {:?}\n", slice);
+
+
+    let sum: i32 = slice.iter().sum();
+    print!("Sum of slice elements = {}\n", sum);
+
+
 
 }
