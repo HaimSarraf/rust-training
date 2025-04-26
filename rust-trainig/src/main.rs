@@ -1,29 +1,26 @@
-use std::io;
-
 fn main() {
-    println!("Please Enter a Number :");
+    let mut _celc_temp: i32;
+    let celc_range: [i32; 5] = [-100, -50, 0, 50, 100];
+    let fahre_range:[i32;6] = [0,20,40,60,80,100];
 
-    let mut _n: i32;
-    let mut fibo: i32 = 1;
-    let mut a: i32 = 1;
-    let mut b: i32 = 1;
-    let mut input: String = String::new();
-
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-    let _n: i32 = input.trim().parse().expect("Please type a number!");
-
-    if _n == 0 {
-        println!("Fibonacci of 0 is 0");
-    } else if _n == 1 || _n == 2 {
-        println!("Fibonacci of {} is 1", _n);
-    } else {
-        for _ in 3..=_n {
-            fibo = a + b;
-            a = b;
-            b = fibo;
-        }
-        println!("Fibonacci of {} is {}", _n, fibo);
+    for temp in celc_range {
+        println!("{}°cels = {}°fahre", temp, celc_convertor_to_fahre(temp));
     }
+    for temp in fahre_range {
+        println!("{}°fahre = {}°celc", temp, fahre_convertor_to_celc(temp));
+    }
+
+
+}
+
+fn celc_convertor_to_fahre(temp: i32) -> i32 {
+    let result: i32 = ((temp * 9) / 5) + 32;
+
+    return result;
+}
+
+fn fahre_convertor_to_celc(temp: i32) -> i32 {
+    let result: i32 = ((temp -32) * 5) / 9;
+
+    return result;
 }
