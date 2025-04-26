@@ -141,7 +141,7 @@ fn main() {
 
     let mut count = 0;
     'counting_up: loop {
-        println!("count = {count}\n");
+        println!("count = {count}");
         let mut remaining = 10;
 
         loop {
@@ -157,6 +157,35 @@ fn main() {
         count += 1;
     }
     println!("End Count = {count}");
+
+    // the countdown func. We will introduce a better one soon
+    let mut number =3;
+    while number != 0{
+        println!("{number}!");
+
+        number -= 1 ;
+    }
+    println!("Finished\n");
+
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+    while index < a.len() {
+        println!("the value is : {}", a[index]);
+        index += 1;
+    }
+    // we can make the above code faster by useing
+    // "for"-loop. it will reduce the compiler runtime code
+    // it also increase the safety of code
+    for element in a {
+        println!("the element value = {element}");
+    }
+
+    // // the better way of countdown func.
+    for number in (1..4).rev(){
+        println!("{number}!");
+    }
+
+
 }
 
 // fn print_labeled_measurement(value: i32, unit_label: &str) {
