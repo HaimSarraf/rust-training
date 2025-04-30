@@ -7,6 +7,9 @@ fn main() {
 
     let s3 = take_and_give_back(s2);
     println!("s3 : {}", s3);
+
+    let (s4, len) = calculate_length(s3);
+    println!("s4 : {}, length: {}", s4, len);
 }
 
 fn gives_ownership() -> String {
@@ -20,4 +23,10 @@ fn take_and_give_back(input: String) -> String {    // 'input' comes into scope
 
     input // 'input' is returned & moves out to the calling function
 
+}
+
+fn calculate_length(input: String) -> (String, usize) {
+    let length = input.len();
+    (input, length)
+    
 }
