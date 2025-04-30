@@ -1,26 +1,26 @@
 fn main() {
-    let mut _celc_temp: i32;
-    let celc_range: [i32; 5] = [-100, -50, 0, 50, 100];
-    let fahre_range:[i32;6] = [0,20,40,60,80,100];
+    
+    //? introduction of the Ownership in Rust ?//
 
-    for temp in celc_range {
-        println!("{}°cels = {}°fahre", temp, celc_convertor_to_fahre(temp));
-    }
-    for temp in fahre_range {
-        println!("{}°fahre = {}°celc", temp, fahre_convertor_to_celc(temp));
-    }
+    {
+        //* "s" is  valid just in this scope
+        //* after we do some stuff with it and 
+        //* exit the scope, it would be no longer valid
+    
 
+        let mut s1: String = String::from("hello");
 
-}
+        s1.push_str(" world !");
 
-fn celc_convertor_to_fahre(temp: i32) -> i32 {
-    let result: i32 = ((temp * 9) / 5) + 32;
+        let s2 = s1;
+        
+        // println!("{s1}"); 
+        //* to prevent 'double free' error,
+        //* Rust consider s1 is no longer valid
+        
+        println!("{s2}");
 
-    return result;
-}
+    } //* after this curly bracket,Rust calls
+      //* the \drop\ function
 
-fn fahre_convertor_to_celc(temp: i32) -> i32 {
-    let result: i32 = ((temp -32) * 5) / 9;
-
-    return result;
 }
