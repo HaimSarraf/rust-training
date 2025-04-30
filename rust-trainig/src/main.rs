@@ -1,41 +1,23 @@
 fn main() {
-    
-    //? introduction of the Ownership in Rust ?//
+    let s1 = gives_ownership();
+    println!("s1 : {}", s1);
 
-    {
-        //* "s" is  valid just in this scope
-        //* after we do some stuff with it and 
-        //* exit the scope, it would be no longer valid.
-    
+    let s2 = String::from("hello");
+    println!("s2 : {}", s2);
 
-        let mut s1: String = String::from("hello");
+    let s3 = take_and_give_back(s2);
+    println!("s3 : {}", s3);
+}
 
-        println!("s1 before assignment & push_str: {s1}");
-        
-        s1 = String::from("yoohoo");
-        //* when assign a new value to an
-        //* existing variable, Rust will free
-        //* the original value's memory immediately.
-        
-        s1.push_str(" world !");
+fn gives_ownership() -> String {
+    let some_string: String = String::from("yours"); // some_string comes into scope
 
+    some_string // some_string is returned & moves out to the calling function
+}
+// gives_ownership will move its return value into the function that calls it
 
-        let s2 = s1.clone();
+fn take_and_give_back(input: String) -> String {    // 'input' comes into scope
 
-        println!("s1 still exists : {s1}");
-        
-        let s3 = s1;
+    input // 'input' is returned & moves out to the calling function
 
-        println!("after 'drop' s1 doesn't last anymore !");
-
-        // println!("{s1}"); 
-        //* to prevent 'double free' error,
-        //* Rust consider s1 is no longer valid.
-        
-        println!("s2 (the deep copy of s1 by .clone() method):{s2}");
-        println!("s3 (just moved s1 in it):{s3}");
-
-    } //* after this curly bracket,Rust calls the \drop\ function.
-
-    
 }
